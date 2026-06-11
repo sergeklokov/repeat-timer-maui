@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="ReadMe.md" />
+    <File Path="ReadMe.odt" />
+  </Folder>
+  <Project Path="repeat-timer-maui/repeat-timer-maui.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>
