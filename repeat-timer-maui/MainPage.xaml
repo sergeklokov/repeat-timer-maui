@@ -13,13 +13,20 @@
                 FontAttributes="Bold" />
 
             <Label
-                Text="Duration (seconds)"
+                Text="Duration"
                 FontSize="16" />
 
             <Entry
                 x:Name="DurationEntry"
-                Keyboard="Numeric"
-                Placeholder="Enter seconds" />
+                Keyboard="Text"
+                Placeholder="90 or 1:30"
+                Text="4"
+                TextChanged="OnDurationEntryTextChanged" />
+
+            <Label
+                x:Name="DurationHintLabel"
+                Text="Enter seconds or mm:ss"
+                FontSize="14" />
 
             <Button
                 x:Name="StartButton"
