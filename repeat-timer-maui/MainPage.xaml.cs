@@ -1,10 +1,14 @@
 ﻿namespace repeat_timer_maui;
 
 using System.Text;
+using repeat_timer_maui.Configuration;
 using repeat_timer_maui.Services;
 
 public partial class MainPage : ContentPage
 {
+    // Timer settings loaded from appsettings.json.
+    private readonly TimerSettings _timerSettings;
+
     // Alarm playback service resolved from dependency injection.
     private readonly IAlarmPlayer _alarmPlayer;
 
@@ -12,13 +16,13 @@ public partial class MainPage : ContentPage
     private IDispatcherTimer? _countdownTimer;
 
     // Initial duration captured when the user starts a timer.
-    private int _initialDurationSeconds = 4;
+    private int _initialDurationSeconds;
 
     // Current duration after Increase/Decrease adjustments.
-    private int _currentDurationSeconds = 4;
+    private int _currentDurationSeconds;
 
     // Remaining seconds in the active countdown.
-    private int _remainingSeconds = 4;
+    private int _remainingSeconds;
 
     // Tracks whether the alarm is currently looping.
     private bool _alarmPlaying;
@@ -27,12 +31,16 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
 
+        // Resolve timer settings from configuration. Fall back to a safe default if unavailable.
+        _timerSettings = Application.Current?.Handler?.MauiContext?.Services.GetService(typeof(TimerSettings)) as TimerSettings
+            ?? new TimerSettings();
+
         // Resolve the platform alarm service. Fall back to a no-op implementation when unavailable.
         _alarmPlayer = Application.Current?.Handler?.MauiContext?.Services.GetService(typeof(IAlarmPlayer)) as IAlarmPlayer
             ?? new NullAlarmPlayer();
 
-        // Initialize the page with the default four-second duration.
-        SetDurationSeconds(4, updateInitialDuration: true);
+        // Initialize the page with the configured default duration.
+        SetDurationSeconds(_timerSettings.DefaultDurationSeconds, updateInitialDuration: true);
         UpdateStatusLabel();
     }
 

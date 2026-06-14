@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using repeat_timer_maui.Configuration;
 using repeat_timer_maui.Services;
 
 #if ANDROID
@@ -19,6 +21,15 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+        // Load app settings from the packaged MAUI asset so it works on Android.
+        using var appSettingsStream = FileSystem.OpenAppPackageFileAsync("appsettings.json").GetAwaiter().GetResult();
+        builder.Configuration.AddJsonStream(appSettingsStream);
+
+        var appSettings = new AppSettings();
+        builder.Configuration.Bind(appSettings);
+        builder.Services.AddSingleton(appSettings);
+        builder.Services.AddSingleton(appSettings.TimerSettings);
 
         // Register the Android alarm player on Android and a no-op fallback elsewhere.
 #if ANDROID

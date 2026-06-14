@@ -20,7 +20,6 @@
                 x:Name="DurationEntry"
                 Keyboard="Text"
                 Placeholder="90 or 1:30"
-                Text="4"
                 TextChanged="OnDurationEntryTextChanged" />
 
             <Label

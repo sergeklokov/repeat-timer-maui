@@ -236,3 +236,7 @@ When start, timer start working until time gone, then play sound forever. If use
 12.1. Remove items created by template from MainPage.  Add fields related  to timer: input duration in seconds and buttons Start, Next, Increase 10%, Decrease 10%, Done.
 
 12.2. Add default time 4 sec, also allow only digits and ":" sign for entering
+
+12.3. Current timer duration set 4 sec for debugging purposes. If I want t ochange it to 480 sec, then how to do it? How to make it a such way, so this change happens in one place of code/form?
+
+12.4. Add setting file, move default duration configuration to it.
