@@ -2,6 +2,8 @@
 
 This document explains how to create the Repeat Timer application using .NET MAUI, optimized for Android deployment. It includes project setup, timer logic structure, sound playback, UI layout, and packaging for APK/AAB.
 
+![Repeat Timer MAUI](02%20repeat-timer-maui%20ready.png)
+
 ## 1. Prerequisites
 
 ### Required Software

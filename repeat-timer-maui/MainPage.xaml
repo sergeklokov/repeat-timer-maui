@@ -28,25 +28,36 @@
                 Text="Enter seconds or mm:ss"
                 FontSize="14" />
 
+            <Label
+                x:Name="StatusLabel"
+                Text="Ready"
+                FontSize="18"
+                FontAttributes="Bold" />
+
             <Button
                 x:Name="StartButton"
-                Text="Start" />
+                Text="Start"
+                Clicked="OnStartButtonClicked" />
 
             <Button
                 x:Name="NextButton"
-                Text="Next" />
+                Text="Next"
+                Clicked="OnNextButtonClicked" />
 
             <Button
                 x:Name="IncreaseButton"
-                Text="Increase 10%" />
+                Text="Increase 10%"
+                Clicked="OnIncreaseButtonClicked" />
 
             <Button
                 x:Name="DecreaseButton"
-                Text="Decrease 10%" />
+                Text="Decrease 10%"
+                Clicked="OnDecreaseButtonClicked" />
 
             <Button
                 x:Name="DoneButton"
-                Text="Done" />
+                Text="Done"
+                Clicked="OnDoneButtonClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

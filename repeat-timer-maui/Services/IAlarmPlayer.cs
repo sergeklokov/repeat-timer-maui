@@ -1,9 +1,10 @@
-namespace repeat_timer_maui.Services
-{
-    public interface IAlarmPlayer
-    {
-        void Start();
+namespace repeat_timer_maui.Services;
 
-        void Stop();
-    }
+public interface IAlarmPlayer
+{
+    // Start alarm playback in a continuous loop.
+    void PlayLooping();
+
+    // Stop any active alarm playback.
+    void Stop();
 }
