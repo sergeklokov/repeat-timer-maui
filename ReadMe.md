@@ -227,3 +227,6 @@ This configuration gives you:
 Good performance on new Moto 2025 phones (Android 15/16)
 Full compatibility with older phones like Moto Stylus 5G 2022 (Android 13)
 
+## 12. Prompt for AI Code Generation
+Based on this app, genereated from template, I want to create "repeat timer" app for Android. I should have field to input duration in seconds and buttons Start, Next, Increase 10%, Decrease 10%, Done.
+When start, timer start working until time gone, then play sound forever. If user click button Next it repeats. Increase/Decrease buttons add/remove 10% time based on intial time. Done stop it. Update code for it.
