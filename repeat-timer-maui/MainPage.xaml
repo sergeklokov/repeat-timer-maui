@@ -28,10 +28,11 @@
                 FontSize="14" />
 
             <Label
-                x:Name="StatusLabel"
+                x:Name="RemainingLabel"
                 Text="Ready"
                 FontSize="18"
-                FontAttributes="Bold" />
+                FontAttributes="Bold"
+                TextColor="Red" />
 
             <Button
                 x:Name="StartButton"

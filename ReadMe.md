@@ -240,3 +240,7 @@ When start, timer start working until time gone, then play sound forever. If use
 12.3. Current timer duration set 4 sec for debugging purposes. If I want t ochange it to 480 sec, then how to do it? How to make it a such way, so this change happens in one place of code/form?
 
 12.4. Add setting file, move default duration configuration to it.
+
+12.5. Change status color to white. 
+
+12.6. Rename StatusLabel to Remaining label. Don't change f-ing color in runtime, we have xaml for it!

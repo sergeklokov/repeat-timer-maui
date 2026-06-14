@@ -71,8 +71,7 @@ public partial class MainPage : ContentPage
         // Start uses the entered value as the new baseline for 10% adjustments.
         if (!TryGetEnteredDuration(out var durationSeconds))
         {
-            StatusLabel.Text = "Enter a valid duration.";
-            StatusLabel.TextColor = Colors.Red;
+            RemainingLabel.Text = "Enter a valid duration.";
             return;
         }
 
@@ -207,20 +206,17 @@ public partial class MainPage : ContentPage
         // Centralize all status text updates for ready, running, stopped, and alarm states.
         if (!string.IsNullOrWhiteSpace(prefix))
         {
-            StatusLabel.Text = $"{prefix}: {FormatDuration(Math.Max(0, _remainingSeconds))}";
-            StatusLabel.TextColor = prefix == "Time is up" ? Colors.Red : Colors.Black;
+            RemainingLabel.Text = $"{prefix}: {FormatDuration(Math.Max(0, _remainingSeconds))}";
             return;
         }
 
         if (_alarmPlaying)
         {
-            StatusLabel.Text = $"Time is up: {FormatDuration(0)}";
-            StatusLabel.TextColor = Colors.Red;
+            RemainingLabel.Text = $"Time is up: {FormatDuration(0)}";
             return;
         }
 
-        StatusLabel.Text = $"Remaining: {FormatDuration(Math.Max(0, _remainingSeconds))}";
-        StatusLabel.TextColor = Colors.Black;
+        RemainingLabel.Text = $"Remaining: {FormatDuration(Math.Max(0, _remainingSeconds))}";
     }
 
     private bool TryGetEnteredDuration(out int durationSeconds)
